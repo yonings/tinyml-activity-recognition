@@ -32,13 +32,13 @@ This project deploys a TinyML model on the Arduino Nano 33 BLE Sense Rev2 to cla
 
 ```
 .
-├── ver2_2.ino        # Arduino sketch — main inference code
+├── infer.ino        # Arduino sketch — main inference code
 ├── model.h           # QAT INT8 TFLite model as a C array
 ├── model_norm.h      # StandardScaler params (mean & std, 2400 values each)
 └── iot_code.ipynb    # Training pipeline (Google Colab)
 ```
 
-> `ver2_2.ino`, `model.h`, and `model_norm.h` must be placed in the **same folder** to compile.
+> `infer.ino`, `model.h`, and `model_norm.h` must be placed in the **same folder** to compile.
 
 ---
 
@@ -78,7 +78,7 @@ Quantization         : FP32 → QAT INT8                (largest resource saving
 
 ---
 
-## How the Arduino Sketch Works (`ver2_2.ino`)
+## How the Arduino Sketch Works (`infer.ino`)
 
 1. Type `infer` in Serial Monitor (115200 baud)
 2. Collect 10 seconds of 12-axis data at 100Hz (1,000 samples)
@@ -128,7 +128,7 @@ walking: 0.0000  ( 0.0%)
 
 ## Usage
 
-1. Place `ver2_2.ino`, `model.h`, and `model_norm.h` in the same folder
+1. Place `infer.ino`, `model.h`, and `model_norm.h` in the same folder
 2. Install the required libraries via Arduino Library Manager:
    - `Arduino_BMI270_BMM150`
    - `Arduino_HS300x`
